@@ -1,3 +1,16 @@
+== Renaissance Builders MN
+= Voting Photo Gallery
+
+==== Datebase Objects
+Weeks  
+Photos  
+Votes  
+Users  
+
+==== Functional Logic
+
+
+-------------------------------------------------------------------------------
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create
