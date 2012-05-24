@@ -1,3 +1,3 @@
 class Week < ActiveRecord::Base
-  attr_accessible :date_end, :date_start, :name
+  attr_accessible :date_start, :name, :week_number
 end

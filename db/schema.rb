@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120522061718) do
+ActiveRecord::Schema.define(:version => 20120522190431) do
 
   create_table "photos", :force => true do |t|
     t.string   "caption"
     t.string   "file"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "week_int"
   end
 
   create_table "testers", :force => true do |t|
@@ -30,8 +31,9 @@ ActiveRecord::Schema.define(:version => 20120522061718) do
   create_table "weeks", :force => true do |t|
     t.string   "name"
     t.date     "date_start"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "week_number"
   end
 
 end
