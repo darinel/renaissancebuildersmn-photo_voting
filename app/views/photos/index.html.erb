@@ -8,11 +8,15 @@
     <th colspan="3">Options</th>
   </tr>
 
-<% @photos.each do |photo| %>
+<% @photos_weeks_ordered.each do |photo| %>
   <tr>
     <td><%= photo.caption %></td>
-    <td><%= photo.week_int %></td>
-    <td><%= photo.file %></td>
+    <% if(photo.week_int?) %>
+      <td><%= link_to photo.week_int, :controller => 'weeks', :action => 'show', :id => photo.week_int %></td>
+    <% else %>
+      <td>No Week Assigned</td>
+    <% end %>
+    <td><img src="<%= photo.file %>" heigth="100" width="100" /></td>
     <td><%= link_to 'Show', photo %></td>
     <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
     <td><%= link_to 'Destroy', photo, confirm: 'Are you sure?', method: :delete %></td>

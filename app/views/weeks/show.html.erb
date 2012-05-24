@@ -1,15 +1,52 @@
 <p id="notice"><%= notice %></p>
 
+
+<!-- ====================================================================== -->
+<!-- WEEK ATTRIBUTES -->
+<h3>Week Attributes</h3>
 <p>
   <b>Name:</b>
   <%= @week.name %>
 </p>
-
+<p>
+  <b>Week:</b>
+  <%= @week.week_number %>
+</p>
 <p>
   <b>Date start:</b>
   <%= @week.date_start %>
 </p>
 
 
+
+<br><br>
+<!-- ====================================================================== -->
+<!-- PHOTOS FOR THIS WEEK -->
+
+<h3>Photos for this week</h3>
+<table border="1">
+	
+	<!-- HEADERS -->
+	<th>Caption</th>
+	<th>Order</th>
+	<th>Image Thumbnail</th>
+	<th>Options</th>
+	
+	<!-- ROW FOR EACH PHOTO -->
+	<% @week.photos.each do |photo| %>
+		<tr>
+			<td><%= photo.caption %></td>
+			<td><%= photo.place_order %></td>
+			<td><img src="<%= photo.file %>" height="100" width="100" /></td>
+			<td><%= link_to "Edit Photo", edit_photo_path(photo) %></td>
+		</tr>
+	<% end %>
+</table>
+
+
+
 <%= link_to 'Edit', edit_week_path(@week) %> |
-<%= link_to 'Back', weeks_path %>
+<%= link_to 'Back', weeks_path %> |
+<%= link_to 'Add a Photo', new_photo_path %>
+
+

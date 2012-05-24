@@ -4,7 +4,22 @@
   <b>Caption:</b>
   <%= @photo.caption %>
 </p>
+<p>
+  <b>Week:</b>
+  <%= @photo.week_int %>
+</p>
+<p>
+  <b>Place:</b>
+  <%= @photo.place_order %>
+</p>
+<p>
+  <img src="<%= @photo.file %>" heigh="100" width="100" />
+</p>
 
 
 <%= link_to 'Edit', edit_photo_path(@photo) %> |
-<%= link_to 'Back', photos_path %>
+
+<%= link_to 'Photos List', photos_path %> |
+
+<% week_link = "Week " + @photo.week_int.to_s %>
+<%= link_to week_link, week_path(@photo.week_int) %>

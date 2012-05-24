@@ -3,6 +3,9 @@ class PhotosController < ApplicationController
   # GET /photos.json
   def index
     @photos = Photo.all
+    
+    # orders Photo objects so that -- nil, 1, 2, 3 
+    @photos_weeks_ordered = Photo.order("week_int ASC")
 
     respond_to do |format|
       format.html # index.html.erb

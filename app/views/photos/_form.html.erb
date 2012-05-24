@@ -24,6 +24,10 @@
     <%= f.label :week %><br />
     <%= select :photo, :week_int, @photo.weeks_array, {:include_blank => 'Not Associated w/ Week'}%>
   </div>
+  <div class="field">
+    <%= f.label :Place_order %><br />
+    <%= f.number_field :place_order %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
