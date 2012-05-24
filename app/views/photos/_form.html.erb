@@ -21,8 +21,8 @@
     <%= f.file_field :file %>
   </div>
   <div class="field">
-    <%= f.label :week_int %><br>
-    <%= select_tag(:week_int, options_for_select(@photo.weeks_array)) %>    
+    <%= f.label :week %><br />
+    <%= select :photo, :week_int, @photo.weeks_array, {:include_blank => 'Not Associated w/ Week'}%>
   </div>
   <div class="actions">
     <%= f.submit %>
