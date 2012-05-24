@@ -1,13 +1,47 @@
-<H1>Remodeling Options for Week <%= @week.week_number %></H1>
+<% if flash[:notice] %>
+    <div id="notice"><%= flash[:notice] %></div>
+<% end %>
+<!-- ====================================================================== -->
+<h1>Remodeling Options for Week <%= @week.week_number %></h1>
+
+<!-- ====================================================================== -->
+<!-- links -->
+<%= link_to "View All Weeks[Index Page]", :action => 'index' %>
+
+<!-- ====================================================================== -->
+<!-- table for voting -->
+	<table border="1">
+		<tr>
+			<th>Caption</th>
+			<th>Photo</th>
+			<th colspan="2">Stats</th>
+			<th>Vote</th>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td align="center" width="100pt">Number</td>
+			<td align="center" width="100pt">Percent</td>
+			<td></td>
+		</tr>
+
+		<% @photos.each do |photo| %>
+			<tr>
+				<td><%= photo.caption %></td>
+				<td><img src="<%= photo.file %>" height="100" width="100" /></td>
+				<%#  statistics %>
+				<% @number = @votes_week.where("photo =?", photo.id).count %><br>
+				<% @perecent = ((@number*1.0)/@votes_week.count)*100 %><br>
+				<td align="center" ><%= @number %></td>
+				<td align="center" ><%= "%.1f" % @perecent %></td>
+				<td align="center" width="50pt" ><%= button_to "Vote", 
+					:controller => "vote", 
+					:action => "submit",
+					:photo_id => photo.id,
+					:week_id => @week.id 
+					%></td>
+			</tr>
+		<% end %>
 
 
-<table>
-	<tr>
-		<th></th>
-	</tr>
-
-	<tr>
-		<td></td>
-	</tr>
-
-</table>
+	</table>

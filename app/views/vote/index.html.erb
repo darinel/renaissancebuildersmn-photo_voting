@@ -18,7 +18,11 @@
 	<% Week.order("week_number ASC").each do |week| %>
 		<tr>
 			<td><%= week.week_number %></td>
-			<td><%= link_to 'Go to this week', :controller => 'vote', :action => 'week', :id => week.week_number %></td>
+			<td><%= link_to 'Go to this week', 
+					:controller => 'vote', 
+					:action => 'week', 
+					:id => week.week_number 
+				%></td>
 		</tr>
 	<% end %>
 </table>

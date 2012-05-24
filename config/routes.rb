@@ -1,14 +1,15 @@
 RenaissancebuildersmnPhotoVoting::Application.routes.draw do
   
-  get "vote/index"
-  get "vote/week/:id"  => 'vote#week'
-  get "vote"      => 'vote#index'
+  get   "vote/index"    => 'vote#index'
+  get   "vote/week/:id" => 'vote#week'
+  post  "vote"          => 'vote#submit'
+  get   "vote"          => "vote#index"
 
   resources :photos
 
   resources :weeks
 
-  root :to        => 'remodel_vote#index'
+  root :to        => 'vote#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
