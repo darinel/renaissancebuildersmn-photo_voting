@@ -7,10 +7,13 @@ gem 'rails', '3.2.3'
 
 gem 'sqlite3'
 
+# =========================================================================== #
 # WESTON ADDED
 # photo uploading library
 gem 'carrierwave'
+gem 'twitter-bootstrap-rails'
 
+# --------------------------------------------------------------------------- #
 
 
 # Gems used only for assets and not required
