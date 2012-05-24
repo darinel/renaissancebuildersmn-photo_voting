@@ -8,7 +8,7 @@ class Photo < ActiveRecord::Base
   # returns week number and week description. 
   # For example, "1 - Choose Layout"
   def weeks_array
-  	Week.all.map { |w| [w.week_number.to_s + " - " + w.name.to_s] }
+  	Week.all.map { |w| [w.week_number.to_s + " - " + w.name.to_s, w.week_number] }
   end
 
 
